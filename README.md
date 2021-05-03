@@ -38,6 +38,26 @@ test (when adding missing tests)
 chore (maintain)
 ```
 
+### Exception 참고
+
+```
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+
+assertThatExceptionOfType(IndexOutOfBoundsException.class)
+  .isThrownBy(() -> {
+      // ...
+}).withMessageMatching("Index: \\d+, Size: \\d+");
+```
+
+```
+import static org.assertj.core.api.Assertions.*;
+
+assertThatThrownBy(() -> {
+    // ...
+}).isInstanceOf(IndexOutOfBoundsException.class)
+  .hasMessageContaining("Index: 2, Size: 2");
+```
+
 
 # 1. 문자열 사칙 연산 계산기 구현
 | 이번 미션의 핵심은 내가 구현하는 코드에 단위 테스트를 추가하는 경험을 하는 것이다.
